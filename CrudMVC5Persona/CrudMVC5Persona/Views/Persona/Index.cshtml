@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CrudMVC5Persona.Models.Persona>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listar de Persona</h2>
+<div class="row">
+    <div class="row">
+        <table class="table table-hover">
+            <thead style="background:#0c8ceb;">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">APELLIDOS Y NOMBRES </th>
+                    <th scope="col">SEXO</th>
+                    <th scope="col">EDAD</th>
+                    <th scope="col">TELEFONO</th>
+                    <th scope="col">CORREO</th>
+                    <th scope="col">DIRECCION</th>
+                    <th scope="col">MANTENIMIENTO</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">
+                            @item.ID_PERSONA
+                        </th>
+                        <td>
+                            @item.APELLIDOP @item.APELLIDOM, @item.NOMBRES
+                        </td>
+                        <td>
+                            @item.SEXO
+                        </td>
+                        <td>
+                            @item.EDAD
+                        </td>
+                        <td>
+                            @item.TELEFONO
+                        </td>
+                        <td>
+                            @item.CORREO
+                        </td>
+                        <td>
+                            @item.DIRECCION
+                        </td>
+                        <td>
+                            <a href="/Persona/modificar?=@item.ID_PERSONA">Modificar</a> |
+                            <a href="/Persona/Eliminar?=@item.ID_PERSONA">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+
+</div>
+

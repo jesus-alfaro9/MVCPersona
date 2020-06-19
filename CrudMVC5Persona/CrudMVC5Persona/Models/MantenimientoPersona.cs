@@ -39,16 +39,26 @@ namespace CrudMVC5Persona.Models
             }
             return LstPersona;
         }
-        public int Registrar()
+        public int Registrar(Persona per)
         {
+            int Resul;
             using (SqlConnection cn = getConexion())
             {
-                SqlCommand cmd = new SqlCommand("",cn);
+                SqlCommand cmd = new SqlCommand("SP_REGISTRARPERSONA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NOMBRES", per.NOMBRES);
+                cmd.Parameters.AddWithValue("@APELLIDOP", per.APELLIDOP);
+                cmd.Parameters.AddWithValue("@APELLIDOM", per.APELLIDOM);
+                cmd.Parameters.AddWithValue("@EDAD", per.EDAD);
+                cmd.Parameters.AddWithValue("@TELEFONO", per.TELEFONO);
+                cmd.Parameters.AddWithValue("@CORREO", per.CORREO);
+                cmd.Parameters.AddWithValue("@DIRECCION", per.DIRECCION);
+                cmd.Parameters.AddWithValue("@SEXO", per.SEXO);
+                cn.Open();
+                Resul = cmd.ExecuteNonQuery();
+
             }
-
-
+            return Resul;
         }
-
-
     }
 }

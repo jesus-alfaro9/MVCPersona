@@ -16,5 +16,28 @@ namespace CrudMVC5Persona.Controllers
 
             return View(oPersona.Listar());
         }
+        public ActionResult Registrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Registrar(FormCollection collection)
+        {
+            MantenimientoPersona opersona = new MantenimientoPersona();
+            Persona oper = new Persona()
+            {
+                NOMBRES = collection["Nombres"],
+                APELLIDOP = collection["ApellidoP"],
+                APELLIDOM = collection["ApellidoM"],
+                EDAD = int.Parse(collection["Edad"]),
+                TELEFONO = collection["Telefono"],
+                CORREO= collection["Correo"],
+                DIRECCION=collection["Direccion"],
+                SEXO=collection["Sexo"]
+            };
+
+            opersona.Registrar(oper);
+            return RedirectToAction("Index");
+        }
     }
 }

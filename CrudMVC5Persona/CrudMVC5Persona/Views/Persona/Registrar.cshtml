@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Registrar";
+}
+
+<h2>Registrar Persona</h2>
+@{Html.BeginForm("Registrar", "Persona", FormMethod.Post); }
+
+<div class="form-group">
+    Nombres:
+    @Html.TextBox("Nombres", null, new { @class = "form-control", @placeholder = "Nombres" })
+</div>
+<div class="form-group">
+    Apellido Paterno:
+    @Html.TextBox("ApellidoP", null, new { @class = "form-control", @placeholder = "Apellido Paterno" })
+</div>
+<div class="form-group">
+    Apellido Materno
+    @Html.TextBox("ApellidoM", null, new { @class = "form-control", @placeholder = "Apellido Materno" })
+</div>
+<div class="form-group">
+    Sexo:
+    @Html.DropDownList("Sexo", new List<SelectListItem>
+{   new SelectListItem{Text="Masculino", Value="M"},
+    new SelectListItem{ Text ="Femenino",Value="F"}
+}, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    Edad:
+    @Html.TextBox("Edad", null, new { @class = "form-control", @placeholder = "Edad" })
+</div>
+<div class="form-group">
+    Telefono:
+    @Html.TextBox("Telefono", null, new { @class = "form-control", @placeholder = "Teléfono" })
+</div>
+
+<div class="form-group">
+    Correo:
+    @Html.TextBox("Correo", null, new { @class = "form-control", @placeholder = "Correo" })
+</div>
+<div class="form-group">
+    Direccion:
+    @Html.TextBox("Direccion", null, new { @class = "form-control", @placeholder = "Dirección" })
+</div>
+<div class="form-group">
+    <br />
+    <input type="submit" class="btn btn-primary" value="Guardar" />
+</div>
+
+
+
+
+
+
+
+
+@{Html.EndForm();}
+
+

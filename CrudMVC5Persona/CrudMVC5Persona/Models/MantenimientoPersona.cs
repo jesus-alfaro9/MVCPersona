@@ -39,6 +39,15 @@ namespace CrudMVC5Persona.Models
             }
             return LstPersona;
         }
+        public int Registrar()
+        {
+            using (SqlConnection cn = getConexion())
+            {
+                SqlCommand cmd = new SqlCommand("",cn);
+            }
+
+
+        }
 
 
     }

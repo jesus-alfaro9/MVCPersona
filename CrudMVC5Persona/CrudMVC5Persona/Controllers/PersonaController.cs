@@ -39,5 +39,13 @@ namespace CrudMVC5Persona.Controllers
             opersona.Registrar(oper);
             return RedirectToAction("Index");
         }
+
+        
+        public ActionResult Eliminar( int id)
+        {
+            MantenimientoPersona oPersona = new MantenimientoPersona();
+            oPersona.Eliminar(id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -60,5 +60,18 @@ namespace CrudMVC5Persona.Models
             }
             return Resul;
         }
+        public int Eliminar(int id)
+        {
+            int Resul;
+            using (SqlConnection cn= getConexion())
+            {
+                SqlCommand cmd = new SqlCommand("ELIMINARPERSONA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_PERSONA", id);
+                cn.Open();
+                Resul=cmd.ExecuteNonQuery();
+            }
+            return Resul;
+        }
     }
 }

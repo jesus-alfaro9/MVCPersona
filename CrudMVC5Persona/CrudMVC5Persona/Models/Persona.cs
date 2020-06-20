@@ -15,7 +15,6 @@ namespace CrudMVC5Persona.Models
         public string TELEFONO { get; set; }
         public string CORREO { get; set; }
         public string DIRECCION { get; set; }
-
         public string SEXO { get; set; }
 
 

@@ -1,0 +1,70 @@
+﻿@model CrudMVC5Persona.Models.Persona
+@{
+    ViewBag.Title = "Actualizar";
+}
+
+<h2>Actualizar Persona</h2>
+@{Html.BeginForm("Actualizar", "Persona", FormMethod.Post); }
+
+<div class="form-group">
+    Codigo:
+    @Html.TextBox("IdPersona", @Model.ID_PERSONA, new { @class = "form-control clletras"})
+</div>
+<div class="form-group">
+    Nombres:
+    @Html.TextBox("Nombres", @Model.NOMBRES, new { @class = "form-control clletras", @placeholder = "Nombres"})
+</div>
+<div class="form-group">
+    Apellido Paterno:
+    @Html.TextBox("ApellidoP", @Model.APELLIDOP, new { @class = "form-control clletras", @placeholder = "Apellido Paterno" })
+</div>
+<div class="form-group">
+    Apellido Materno
+    @Html.TextBox("ApellidoM", @Model.APELLIDOM, new { @class = "form-control clletras", @placeholder = "Apellido Materno" })
+</div>
+<div class="form-group">
+    Sexo:
+    @Html.DropDownList("Sexo", new List<SelectListItem>
+{   new SelectListItem{Text="Masculino", Value="M"},
+    new SelectListItem{ Text ="Femenino",Value="F"}
+}, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    Edad:
+    @Html.TextBox("Edad", @Model.EDAD, new { @class = "form-control clEdad", @placeholder = "Edad" })
+</div>
+<div class="form-group">
+    Telefono:
+    @Html.TextBox("Telefono", @Model.TELEFONO, new { @class = "form-control", @placeholder = "Teléfono" })
+</div>
+
+<div class="form-group">
+    Correo:
+    @Html.TextBox("Correo", @Model.CORREO, new { @class = "form-control", @placeholder = "Correo" })
+</div>
+<div class="form-group">
+    Direccion:
+    @Html.TextBox("Direccion", @Model.DIRECCION, new { @class = "form-control", @placeholder = "Dirección" })
+</div>
+<div class="form-group">
+    <br />
+    <input type="submit" class="btn btn-primary" value="Guardar" />
+</div>
+@{Html.EndForm();}
+
+<script>
+
+    $('.clEdad').on('input', function () {
+
+        this.value = this.value.replace(/[^0-9]/g,'')
+    });
+
+
+    $('.clletras').on('input', function () {
+        this.value = this.value.replace(/^[a-zA-Z ]+$/g,
+            function (x) { return x.toUpperCase(); });
+    });
+
+  
+</script>
+

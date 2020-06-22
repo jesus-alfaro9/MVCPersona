@@ -47,5 +47,33 @@ namespace CrudMVC5Persona.Controllers
             oPersona.Eliminar(id);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Actualizar(int id)
+        {
+            MantenimientoPersona oPersona = new MantenimientoPersona();
+           Persona oPers = oPersona.TraerPersona(id);
+            return View(oPers);
+
+        }
+        [HttpPost]
+        public ActionResult Actualizar(FormCollection collection)
+        {
+            MantenimientoPersona opersona = new MantenimientoPersona();
+            Persona oper = new Persona()
+            {
+                ID_PERSONA= int.Parse(collection["IdPersona"]),
+                NOMBRES = collection["Nombres"],
+                APELLIDOP = collection["ApellidoP"],
+                APELLIDOM = collection["ApellidoM"],
+                EDAD = int.Parse(collection["Edad"]),
+                TELEFONO = collection["Telefono"],
+                CORREO = collection["Correo"],
+                DIRECCION = collection["Direccion"],
+                SEXO = collection["Sexo"]
+            };
+            opersona.Actualizar(oper);
+            return RedirectToAction("Index");
+        }
+
     }
 }

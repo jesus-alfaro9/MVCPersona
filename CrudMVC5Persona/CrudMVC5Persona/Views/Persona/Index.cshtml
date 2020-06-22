@@ -49,8 +49,8 @@
                             @item.DIRECCION
                         </td>
                         <td>
-                            <a href="/Persona/modificar?id=@item.ID_PERSONA">Modificar</a> |
-                            <a  href="#" data-href="/Persona/Eliminar?id=@item.ID_PERSONA" data-toggle="modal" data-target="#confirma-eliminar">Eliminar</a>
+                            <a href="/Persona/Actualizar?id=@item.ID_PERSONA" class="btn btn-success"><span class="glyphicon glyphicon-wrench"></span> Actualizar</a> |
+                            <a  href="#" class="btn btn-danger" data-href="/Persona/Eliminar?id=@item.ID_PERSONA" data-toggle="modal" data-target="#confirma-eliminar"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
                         </td>
                     </tr>
                 }
